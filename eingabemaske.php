@@ -30,7 +30,12 @@
         $row = 1;
         $pflichtfeld = '<span style="background-color:#f00; padding: 0 3px;"><strong style="color: #fff;">!</strong></span>';
 
-        if (($handle = fopen("attribute.csv", "r")) !== FALSE) {
+
+$string = file_get_contents("attribute.json");
+$json = json_decode(utf8_encode($string));
+//var_dump($json[0])
+
+
             echo '';
             echo '<input type="hidden" name="kArtikel" />';
             echo '<textarea id="jsonresult" style="width: 100%; height: 100px;"></textarea>';
@@ -41,35 +46,39 @@
             echo '<td><input type="text" name="artikelnummer" required="required">' . $pflichtfeld . '</td>';
             echo '<td colspan="3" style="text-align:right;"></td>';
             echo '</tr>';
-            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            //foreach($user->data as $mydata)
+            //while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+            foreach($json as $data) {
+
+
                 if ($row % 2 == 0){
                     echo "<tr style='background: #eee;'>";
                 } else {
                     echo "<tr class='style2'>";
                 }
                 if($row == 1) {
-                    echo '<input type="hidden"  name="' . $data[0]. '" value="' . $data[2]. '">';
+                    echo '<input type="hidden"  name="' . $data->Funktionsattributname. '" value="' . $data->Funktionsattributwert. '">';
                     echo '<th></th>';
-                    echo '<th>' . $data[1] . '</th>';
-                    echo '<th>' . $data[2] . '</th>';
-                    echo '<th>' . $data[3] . '</th>';
-                    echo '<th>' . $data[0] . '</th>';
+                    echo '<th>' . $data->label . '</th>';
+                    echo '<th>' . $data->Funktionsattributwert . '</th>';
+                    echo '<th>' . $data->unit . '</th>';
+                    echo '<th>' . $data->Funktionsattributname . '</th>';
                     echo '<th></th>';
                 } else {
-                    echo '<td class="'. $data[6] .'">' . $row . '</td>';
-                    echo '<td>' . $data[1] . '</td>';
-                    if($data[10]) {
-                        echo '<td class="inputfield"><textarea maxlength="4000" rows="4" name="' . $data[0]. '">' . $data[2] . '</textarea></td>';
+                    echo '<td class="'. $data->category .'">' . $row . '</td>';
+                    echo '<td>' . $data->label . '</td>';
+                    if($data->textfield) {
+                        echo '<td class="inputfield"><textarea maxlength="4000" rows="4" name="' . $data->Funktionsattributname. '">' . $data->Funktionsattributwert . '</textarea></td>';
 
                     } else {
-                        echo '<td class="inputfield"><input type="text" name="' . $data[0]. '"' . ($data[4]  ? ' required="required"' : ''). ($data[3]  ? ' onchange="pruefeKomma(event)"' : '').'>' .($data[9]  ? ' <input type="checkbox">' : '') . ($data[4]  ? $pflichtfeld : '').'</td>';
+                        echo '<td class="inputfield"><input type="text" name="' . $data->Funktionsattributname. '"' . ($data->pflichtfeld  ? ' required="required"' : ''). ($data->unit  ? ' onchange="pruefeKomma(event)"' : '').'>' .($data->calc  ? ' <input type="checkbox">' : '') . ($data->pflichtfeld  ? $pflichtfeld : '').'</td>';
 
                     }
-                    echo '<td>' . $data[3] . ' ' . ($data[5]  ? ' <small style="color: #ccc;">(nrv:'.$data[5].')</small>' : '').' </td>';
-                    echo '<td>' . $data[0] . '</td>';
+                    echo '<td>' . $data->unit . ' ' . ($data->nrv  ? ' <small style="color: #ccc;">(nrv:'.$data->nrv.')</small>' : '').' </td>';
+                    echo '<td>' . $data->Funktionsattributname . '</td>';
                     echo '<td>';
-                    if($data[7]){
-                        echo '<div class="wrapper"><strong>i</strong><div class="tooltip">' . $data[7] . '</div></div>';
+                    if($data->Beschreibung){
+                        echo '<div class="wrapper"><strong>i</strong><div class="tooltip">' . $data->Beschreibung . '</div></div>';
                     }
                     echo '</td>';
 
@@ -79,8 +88,7 @@
             }
             echo '</table>';
             echo '</form>';
-            fclose($handle);
-        }
+
         ?>
         <div id="searchbox">
             <form role="form" method="post">
