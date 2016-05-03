@@ -200,7 +200,7 @@ function portionZuHundertGramm() {
 
 function insertValues(item) {
 
-    $('#formular').trigger("reset");
+    //$('#formular').trigger("reset");
     item = JSON.parse(decodeURIComponent(item));
     $('[name=artikelnummer]').val(item.cArtNr);
     $('[name=kArtikel]').val(item.kArtikel);
