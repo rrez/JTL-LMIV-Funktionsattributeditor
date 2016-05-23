@@ -56,15 +56,7 @@ $json = json_decode(utf8_encode($string));
                 } else {
                     echo "<tr class='style2'>";
                 }
-                if($row == 1) {
-                    echo '<input type="hidden"  name="' . $data->Funktionsattributname. '" value="' . $data->Funktionsattributwert. '">';
-                    echo '<th></th>';
-                    echo '<th>' . $data->label . '</th>';
-                    echo '<th>' . $data->Funktionsattributwert . '</th>';
-                    echo '<th>' . $data->unit . '</th>';
-                    echo '<th>' . $data->Funktionsattributname . '</th>';
-                    echo '<th></th>';
-                } else {
+
                     echo '<td class="'. $data->category .'">' . $row . '</td>';
                     echo '<td>' . $data->label . '</td>';
                     if($data->textfield) {
@@ -82,7 +74,7 @@ $json = json_decode(utf8_encode($string));
                     }
                     echo '</td>';
 
-                }
+
                 echo '</tr>';
                 $row++;
             }
