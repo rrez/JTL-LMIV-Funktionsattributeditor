@@ -909,6 +909,32 @@
     "textfield": null
   },
   {
+    "Funktionsattributname": "tribulus",
+    "label": "Tribulus",
+    "Funktionsattributwert": null,
+    "unit": "mg",
+    "pflichtfeld": null,
+    "nrv": null,
+    "category": 0,
+    "Beschreibung": null,
+    "nichteingepflegt": null,
+    "calc": "TRUE",
+    "textfield": null
+  },
+  {
+    "Funktionsattributname": "saponine",
+    "label": "Saponine",
+    "Funktionsattributwert": null,
+    "unit": "mg",
+    "pflichtfeld": null,
+    "nrv": null,
+    "category": 0,
+    "Beschreibung": null,
+    "nichteingepflegt": null,
+    "calc": "TRUE",
+    "textfield": null
+  },
+  {
     "Funktionsattributname": "citrulin",
     "label": "Citrullin Malat",
     "Funktionsattributwert": null,
