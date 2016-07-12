@@ -259,6 +259,19 @@
     "textfield": null
   },
   {
+    "Funktionsattributname": "vitamind3",
+    "label": "Vitamin D3",
+    "Funktionsattributwert": null,
+    "unit": "&micro;g",
+    "pflichtfeld": null,
+    "nrv": 5,
+    "category": "mineralvitamin",
+    "Beschreibung": "Vitamin D3",
+    "nichteingepflegt": null,
+    "calc": "TRUE",
+    "textfield": null
+  },
+  {
     "Funktionsattributname": "vitamine",
     "label": "Vitamin E",
     "Funktionsattributwert": null,
@@ -1154,5 +1167,20 @@
     "nichteingepflegt": null,
     "calc": null,
     "textfield": null
+  },
+  {
+    "Funktionsattributname": "unverkaeuflich",
+    "label": "unverkaeuflich",
+    "Funktionsattributwert": 0,
+    "unit": null,
+    "pflichtfeld": null,
+    "nrv": null,
+    "category": null,
+    "Beschreibung": null,
+    "nichteingepflegt": null,
+    "calc": null,
+    "textfield": null
   }
+
+
 ]
