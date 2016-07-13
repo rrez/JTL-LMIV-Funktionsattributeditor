@@ -48,6 +48,9 @@ $(document).ready(function () {
         $('#jsonresult').text(JSON.stringify($('#formular').serializeObject(),null, "\t"));
     });
 
+    $('#readNutrition').on('click', function () {
+        nutrition.read($('#jsonresult').val());
+    });
 
     $('#submitbtn').on('click', function () {
 

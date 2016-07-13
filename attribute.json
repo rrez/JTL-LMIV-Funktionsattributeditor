@@ -78,6 +78,7 @@
   },
   {
     "Funktionsattributname": "gesaetigte",
+    "searchKeys": "gesaettigte",
     "label": "Gesaetigte Fettsaeuren",
     "Funktionsattributwert": null,
     "unit": "g",

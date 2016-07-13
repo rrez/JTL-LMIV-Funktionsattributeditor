@@ -1,6 +1,7 @@
 <html>
 <head>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="nutrition.js"></script>
     <script src="lib.js"></script>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
@@ -8,9 +9,25 @@
 <form id="formular">
     <div id="header">
         <h1 id="produktname">Produkt</h1>
-        <button type="button" id="portionzuhundert">Portion zu 100g</button><button type="button" id="kaptogramm">Kapsel zu 100g</button><button type="button" id="zueinzel">Kapseln zu Einzel</button><button type="button" id="jsonfy">JSON</button>   <input id="submitbtn" type="submit" /><input type="reset" id="resetvalues" /> <button type="button" id="checkAllBoxes">Alles markieren</button>
+        <button type="button" id="portionzuhundert">Portion zu 100g</button>
+        <button type="button" id="kaptogramm">Kapsel zu 100g</button>
+        <button type="button" id="zueinzel">Kapseln zu Einzel</button>
+        <button type="button" id="jsonfy">JSON</button>
+        <input id="submitbtn" type="submit" />
+        <input type="reset" id="resetvalues" />
+        <button type="button" id="checkAllBoxes">Alles markieren</button>
+        <button type="button" id="readNutrition">Werte einlesen</button>
     </div>
     <div id="content"><!-- content open-->
+    <textarea id="jsonresult" style="width: 100%; height: 100px;">Brennwert/Energy/Valor calorico	1033 kJ 243 kcal
+                                                                  Fett/Fat/Grasas	0,6 g
+                                                                  - davon ges‰ttigte Fetts‰uren/- thereof saturated fatty acids/- de las cuales saturadas	0,4 g
+                                                                  Kohlenhydrate/Carbohydrates/Hidratos de carbono	29,9 g
+                                                                  - davon Zucker/- thereof sugar/- de los cuales azucares	5,4 g
+                                                                  Eiweiﬂ/Protein/Proteina	26,4 g
+                                                                  Salz/Salt/Sal	0,13 g
+                                                                  Laktose/Lactose/Lactosa	0,16 g
+                                                                  BCAA"'gesamt/total/total	5,9 g</textarea>
         <?php
 
         /*$data:
@@ -38,7 +55,7 @@ $json = json_decode(utf8_encode($string));
 
             echo '';
             echo '<input type="hidden" name="kArtikel" />';
-            echo '<textarea id="jsonresult" style="width: 100%; height: 100px;"></textarea>';
+
             echo '<table style="float:left;">';
             echo '<tr style="background-color: #fcc;">';
             echo '<td></td>';
