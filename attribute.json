@@ -78,7 +78,7 @@
   },
   {
     "Funktionsattributname": "gesaetigte",
-    "searchKeys": "gesaettigte",
+    "searchKeys": ["gesaettigte"],
     "label": "Gesaetigte Fettsaeuren",
     "Funktionsattributwert": null,
     "unit": "g",
@@ -274,6 +274,7 @@
   },
   {
     "Funktionsattributname": "vitamine",
+    "searchKeys": ["vitamin e","vitamin-e"],
     "label": "Vitamin E",
     "Funktionsattributwert": null,
     "unit": "mg",
@@ -287,6 +288,7 @@
   },
   {
     "Funktionsattributname": "vitamink",
+    "searchKeys": ["vitamin k","vitamin-k"],
     "label": "Vitamin K",
     "Funktionsattributwert": null,
     "unit": "&micro;g",
@@ -300,6 +302,7 @@
   },
   {
     "Funktionsattributname": "vitaminc",
+    "searchKeys": ["vitamin c","vitamin-c"],
     "label": "Vitamin C",
     "Funktionsattributwert": null,
     "unit": "mg",
@@ -314,6 +317,7 @@
   {
     "Funktionsattributname": "thiamin",
     "label": "Thiamin (Vitamin B1)",
+    "searchKeys": ["Thiamin","Vitamin B1"],
     "Funktionsattributwert": null,
     "unit": "mg",
     "pflichtfeld": null,

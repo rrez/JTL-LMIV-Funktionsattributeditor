@@ -13,29 +13,59 @@ function Nutrition() {
         for(var i = 0, len = row.length; i < len; i++) {
             var myRow = row[i];
             for(var j = 0, jlen = attribute.length; i < jlen; j++) {
-                var myAttribut = attribute[j]
+                var myAttribut = attribute[j];
                 if(!myAttribut) break;
 
                 // Umlaute umwandeln, und komma durch punkte ersetzen.
                 myRow = myRow.replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/Ä/g,"Ae").replace(/Ö/g,"Oe").replace(/Ü/g,"Ue").replace(/ß/g,"ss").replace(/,/g,".");
-                if(new RegExp("\\b" + myAttribut.Funktionsattributname + "\\b","i").test(myRow)) {
 
-                    // Zahlen aus dem String holen, achtung es wird immer nur die erste Zahl geholt (z.B. 100 g 50% nrv, oder 1333kj 133 kcal)
-                    if(myRow) {
-                        var regex = /[+-]?\d+(\.\d+)?/g,
-                            zahlenwert = myRow.match(regex).map(function(v) { return parseFloat(v); });
+                //console.log(this._findValue(myAttribut.Funktionsattributname, myRow))
+                //console.log($("[name='" + myAttribut.Funktionsattributname + "']"))
+                var value;
+                if(myAttribut.searchKeys) {
+                    value = this._getSearchKey(myAttribut.searchKeys, myRow);
 
-                        console.log(myAttribut.Funktionsattributname + ': ' + zahlenwert[0]);
-                        //console.log(myAttribut.Funktionsattributname + ': ' + myRow)
-                        $("[name='"+myAttribut.Funktionsattributname+"']").val(zahlenwert[0])
-                    }
+                } else {
+                    value = this._findValue(myAttribut.Funktionsattributname, myRow);
+                }
 
+
+                if(value) {
+                    $("[name='" + myAttribut.Funktionsattributname + "']").val(value);
                 }
             }
         }
     };
 
-    this.attribute;
+    this._getSearchKey = function(searchKeys, row) {
+        var value;
+        for(var i = 0, len = searchKeys.length; i < len; i++) {
+            value = this._findValue(searchKeys[i], row);
+            if(value) break;
+        }
+
+        return value;
+    };
+
+    this._findValue = function(value, row) {
+        //if(value == "vitamin c") {
+            //onsole.log(value)
+            //console.log(new RegExp("\\b" + value + "\\b","i").test(row))
+
+
+        if(new RegExp("\\b" + value + "\\b","i").test(row)) {
+
+            // Zahlen aus dem String holen, achtung es wird immer nur die erste Zahl geholt (z.B. 100 g 50% nrv, oder 1333kj 133 kcal)
+            if(row) {
+                var regex = /[+-]?\d+(\.\d+)?/g,
+                    zahlenwert = row.match(regex).map(function(v) { return parseFloat(v); });
+
+
+
+                return zahlenwert[0];
+            }
+        }
+    };
 
     this.init = function() {
         $.ajax({

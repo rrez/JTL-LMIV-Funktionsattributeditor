@@ -19,15 +19,18 @@
         <button type="button" id="readNutrition">Werte einlesen</button>
     </div>
     <div id="content"><!-- content open-->
-    <textarea id="jsonresult" style="width: 100%; height: 100px;">Brennwert/Energy/Valor calorico	1033 kJ 243 kcal
-                                                                  Fett/Fat/Grasas	0,6 g
-                                                                  - davon ges‰ttigte Fetts‰uren/- thereof saturated fatty acids/- de las cuales saturadas	0,4 g
-                                                                  Kohlenhydrate/Carbohydrates/Hidratos de carbono	29,9 g
-                                                                  - davon Zucker/- thereof sugar/- de los cuales azucares	5,4 g
-                                                                  Eiweiﬂ/Protein/Proteina	26,4 g
-                                                                  Salz/Salt/Sal	0,13 g
-                                                                  Laktose/Lactose/Lactosa	0,16 g
-                                                                  BCAA"'gesamt/total/total	5,9 g</textarea>
+    <textarea id="jsonresult" style="width: 100%; height: 100px;">
+    Brennwert/Energy/Valor calorico	1033 kJ 243 kcal
+    Fett/Fat/Grasas	0,6 g
+    - davon ges‰ttigte Fetts‰uren/- thereof saturated fatty acids/- de las cuales saturadas	0,4 g
+    Kohlenhydrate/Carbohydrates/Hidratos de carbono	29,9 g
+    - davon Zucker/- thereof sugar/- de los cuales azucares	5,4 g
+    Eiweiﬂ/Protein/Proteina	26,4 g
+    Salz/Salt/Sal	0,13 g
+    Laktose/Lactose/Lactosa	0,16 g
+    BCAA"'gesamt/total/total	5,9 g
+    Vitamin C	0,16
+    </textarea>
         <?php
 
         /*$data:
